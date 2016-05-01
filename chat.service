@@ -1,0 +1,16 @@
+[Unit]
+Description=Chat is a micro service for relaying messages between xmpp
+Documentation=http://github.com/russellchadwick/chatservice
+After=network.target
+
+[Service]
+User=pi
+Group=pi
+LimitNOFILE=65536
+ExecStart=/home/pi/go/bin/chatserver
+KillMode=control-group
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=chat.service
